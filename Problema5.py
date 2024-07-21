@@ -1,15 +1,19 @@
-def es_primo(numero):
-    if numero <= 1:
+def es_primo(n):
+    """Función para verificar si un número es primo."""
+    if n <= 1:
         return False
-    for i in range(2, int(numero ** 2) + 1):
-        if numero % i == 0:
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
             return False
     return True
 
-suma_primos = 0
+def suma_primos_menores_100():
+    """Función para calcular la suma de todos los números primos menores que 100."""
+    suma = 0
+    for num in range(2, 100):
+        if es_primo(num):
+            suma += num
+    return suma
 
-for num in range(2, 100):
-    if es_primo(num):
-        suma_primos += num
-
-print("La suma de todos los números primos menores que 100 es:", suma_primos)
+resultado = suma_primos_menores_100()
+print("La suma de todos los números primos menores que 100 es:", resultado)
